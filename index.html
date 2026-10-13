@@ -13,10 +13,77 @@
       justify-content: center;
       background: #fefefe;
     }
-    img { display: block; width: min(100vw, 1672px); height: auto; }
+    .logo {
+      position: relative;
+      width: min(100vw, 1672px);
+      aspect-ratio: 1672 / 941;
+      container-type: inline-size;
+    }
+    .logo img { display: block; width: 100%; height: auto; }
+    .hippo {
+      position: absolute;
+      left: 2.99%;
+      top: 20.19%;
+      width: 32.30%;
+      height: 57.38%;
+    }
+    .hippo img {
+      height: 100%;
+      mix-blend-mode: multiply;
+      transform-origin: 50% 90%;
+    }
+    .dust {
+      position: absolute;
+      top: 94%;
+      width: 0;
+      height: 0;
+    }
+    .dust.l { left: 24.8%; }
+    .dust.r { left: 76.3%; }
+    .dust i {
+      position: absolute;
+      width: 3.2cqw;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #c2c2c2;
+      opacity: 0;
+    }
+    .dust i:nth-child(1) { --dx: -130%; --dy: -60%; }
+    .dust i:nth-child(2) { --dx: -230%; --dy: 10%; width: 2.4cqw; }
+    .dust i:nth-child(3) { --dx: -60%; --dy: -170%; width: 1.8cqw; }
+    .dust.r i:nth-child(1) { --dx: 130%; }
+    .dust.r i:nth-child(2) { --dx: 230%; }
+    .dust.r i:nth-child(3) { --dx: 60%; }
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .hippo:hover img { animation: stomp 1.6s ease-in-out infinite; }
+      .hippo:hover .dust i { animation: puff 1.6s ease-out infinite; }
+      .hippo:hover .dust.r i { animation-delay: 0.32s; }
+      .hippo:hover .dust.l i { animation-delay: 1.12s; }
+    }
+    @keyframes puff {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(0.3); }
+      25% { opacity: 0; transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(1.2); }
+      100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(1.2); }
+    }
+    @keyframes stomp {
+      0%, 100% { transform: none; }
+      10% { transform: translateY(-4%) rotate(-3deg); }
+      20% { transform: translateY(0) rotate(0) scale(1.03, 0.95); }
+      28% { transform: none; }
+      50% { transform: none; }
+      60% { transform: translateY(-4%) rotate(3deg); }
+      70% { transform: translateY(0) rotate(0) scale(1.03, 0.95); }
+      78% { transform: none; }
+    }
   </style>
 </head>
 <body>
-  <img src="logo.webp" width="1672" height="941" alt="colossalhippo">
+  <div class="logo">
+    <img src="wordmark.webp" width="1672" height="941" alt="colossalhippo">
+    <div class="hippo"><img src="hippo.webp" width="540" height="540" alt="">
+      <span class="dust l"><i></i><i></i><i></i></span>
+      <span class="dust r"><i></i><i></i><i></i></span>
+    </div>
+  </div>
 </body>
 </html>
