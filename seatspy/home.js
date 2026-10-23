@@ -4,12 +4,18 @@ requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('is-s
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 
-// phone row: start centered on the main screen at phone width
+// phone row: center the main screen, and snap only once the screens sit still
 const row = document.querySelector('.showcase');
-const main = document.querySelector('.deal-main');
-if (row.scrollWidth > row.clientWidth) {
-  row.scrollLeft = main.offsetLeft + main.offsetWidth / 2 - row.clientWidth / 2;
-}
+const center = (smooth) => {
+  if (row.scrollWidth <= row.clientWidth) return;
+  const mid = row.querySelector('.deal-main');
+  row.scrollTo({ left: mid.offsetLeft + mid.offsetWidth / 2 - row.clientWidth / 2, behavior: smooth ? 'smooth' : 'auto' });
+};
+let touched = false;
+['pointerdown', 'touchstart', 'wheel'].forEach((t) => row.addEventListener(t, () => { touched = true; }, { passive: true }));
+const settle = (ms) => setTimeout(() => { if (!touched) center(false); row.classList.add('snap'); }, ms);
+center(false);
+settle(reduce.matches ? 0 : 1600);
 
 // pointer tilt, mouse only
 const fine = matchMedia('(hover: hover) and (pointer: fine)');
@@ -97,9 +103,10 @@ rowEl.querySelectorAll('.deal').forEach((fig) => {
     fig.classList.add('deal-main');
     mid.setAttribute('aria-pressed', 'false');
     fig.setAttribute('aria-pressed', 'true');
-    if (row.scrollWidth > row.clientWidth) {
-      row.scrollTo({ left: fig.offsetLeft + fig.offsetWidth / 2 - row.clientWidth / 2, behavior: reduce.matches ? 'auto' : 'smooth' });
-    }
+    row.classList.remove('snap');
+    touched = false;
+    center(!reduce.matches);
+    settle(reduce.matches ? 0 : 650);
     if (reduce.matches) return;
     figs.forEach((f) => {
       const a = first.get(f);

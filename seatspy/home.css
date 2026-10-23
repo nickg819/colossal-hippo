@@ -353,10 +353,11 @@ img { display: block; max-width: 100%; height: auto; }
   .beta-fields { flex-direction: column; border-radius: 28px; padding: 6px; }
   .beta-input { text-align: center; }
   .showcase {
-    overflow-x: auto; scroll-snap-type: x mandatory;
+    overflow-x: auto; scroll-snap-type: none;
     scrollbar-width: none; padding-bottom: 72px;
   }
   .showcase::-webkit-scrollbar { display: none; }
+  .showcase.snap { scroll-snap-type: x mandatory; }
   .phones { justify-content: flex-start; width: max-content; gap: 14px; padding: 8px calc(50vw - 102px) 0; }
   .deal { width: 168px; scroll-snap-align: center; }
   .deal-main { width: 204px; }
