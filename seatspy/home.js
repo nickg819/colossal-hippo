@@ -72,3 +72,50 @@ document.querySelectorAll('.beta').forEach((form) => {
     }
   });
 });
+
+// tap a screen to swap it into the middle
+const rowEl = document.querySelector('.phones');
+rowEl.querySelectorAll('.deal').forEach((fig) => {
+  const label = fig.querySelector('img').alt.split(',')[0];
+  fig.setAttribute('role', 'button');
+  fig.setAttribute('aria-label', `Show ${label} in the middle`);
+  fig.tabIndex = 0;
+  const go = () => {
+    const mid = rowEl.querySelector('.deal-main');
+    if (fig === mid) return;
+    rowEl.classList.add('dealt');
+    const figs = [...rowEl.children];
+    const first = new Map(figs.map((f) => [f, f.getBoundingClientRect()]));
+    const marker = document.createComment('');
+    rowEl.replaceChild(marker, fig);
+    rowEl.replaceChild(fig, mid);
+    rowEl.replaceChild(mid, marker);
+    const x = fig.style.getPropertyValue('--x');
+    fig.style.setProperty('--x', mid.style.getPropertyValue('--x'));
+    mid.style.setProperty('--x', x);
+    mid.classList.remove('deal-main');
+    fig.classList.add('deal-main');
+    mid.setAttribute('aria-pressed', 'false');
+    fig.setAttribute('aria-pressed', 'true');
+    if (row.scrollWidth > row.clientWidth) {
+      row.scrollTo({ left: fig.offsetLeft + fig.offsetWidth / 2 - row.clientWidth / 2, behavior: reduce.matches ? 'auto' : 'smooth' });
+    }
+    if (reduce.matches) return;
+    figs.forEach((f) => {
+      const a = first.get(f);
+      const b = f.getBoundingClientRect();
+      const dx = a.left - b.left;
+      const dy = a.top - b.top;
+      const s = a.width / b.width;
+      if (!dx && !dy && s === 1) return;
+      f.animate(
+        [{ transformOrigin: 'top left', transform: `translate(${dx}px, ${dy}px) scale(${s})` }, { transformOrigin: 'top left', transform: 'none' }],
+        { duration: f === fig || f === mid ? 550 : 300, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+      );
+    });
+  };
+  fig.addEventListener('click', go);
+  fig.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+});
+rowEl.querySelector('.deal-main').setAttribute('aria-pressed', 'true');
+rowEl.querySelectorAll('.deal:not(.deal-main)').forEach((f) => f.setAttribute('aria-pressed', 'false'));

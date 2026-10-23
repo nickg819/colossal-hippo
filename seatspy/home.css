@@ -189,7 +189,10 @@ img { display: block; max-width: 100%; height: auto; }
 .deal { flex: none; width: 236px; position: relative; z-index: calc(10 - var(--abs, 0)); }
 .deal:nth-child(1), .deal:nth-child(5) { --abs: 2; }
 .deal:nth-child(2), .deal:nth-child(4) { --abs: 1; }
-.deal-main { width: 276px; }
+.deal-main { width: 296px; }
+.deal { cursor: pointer; }
+.deal-main { cursor: default; }
+.deal:focus-visible { outline-offset: 6px; border-radius: 36px; }
 .phone {
   border: 1px solid #d9d3cb;
   border-radius: 34px;
@@ -204,6 +207,7 @@ img { display: block; max-width: 100%; height: auto; }
   animation: deal var(--deal-dur) var(--ease-smooth-out) backwards;
   animation-delay: calc(350ms + var(--abs, 0) * 70ms);
 }
+.js .phones.dealt .deal { animation: none; }
 @keyframes deal {
   from {
     opacity: 0;
@@ -353,9 +357,9 @@ img { display: block; max-width: 100%; height: auto; }
     scrollbar-width: none; padding-bottom: 72px;
   }
   .showcase::-webkit-scrollbar { display: none; }
-  .phones { justify-content: flex-start; width: max-content; gap: 14px; padding: 8px calc(50vw - 98px) 0; }
+  .phones { justify-content: flex-start; width: max-content; gap: 14px; padding: 8px calc(50vw - 102px) 0; }
   .deal { width: 168px; scroll-snap-align: center; }
-  .deal-main { width: 196px; }
+  .deal-main { width: 204px; }
   .phone { border-radius: 26px; padding: 4px; }
   .phone img { border-radius: 22px; }
   .how, .advice { padding: 0 16px 72px; }
