@@ -45,14 +45,36 @@ document.querySelectorAll('.t-tilt').forEach((tilt) => {
 
 // press and hold to see the types
 const peek = document.querySelector('.peek');
+let held = false;
 const show = () => peek.classList.add('is-peeking');
 const hide = () => peek.classList.remove('is-peeking');
-peek.addEventListener('pointerdown', show);
+peek.addEventListener('pointerdown', () => { held = true; show(); });
 ['pointerup', 'pointerleave', 'pointercancel'].forEach((t) => peek.addEventListener(t, hide));
 peek.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); show(); } });
 peek.addEventListener('keyup', hide);
 peek.addEventListener('blur', hide);
 peek.addEventListener('contextmenu', (e) => e.preventDefault());
+
+// show the types once when the table first scrolls in
+const demoPeek = () => {
+  if (reduce.matches) return;
+  setTimeout(() => {
+    if (held) return;
+    show();
+    setTimeout(() => { if (!held) hide(); }, 1300);
+  }, 1100);
+};
+
+// hold below-the-fold content until it scrolls in, staggering what enters together
+const reveal = new IntersectionObserver((entries) => {
+  entries.filter((e) => e.isIntersecting).forEach((e, n) => {
+    e.target.style.setProperty('--i', Math.min(n, 6));
+    e.target.classList.add('is-shown');
+    reveal.unobserve(e.target);
+    if (e.target.classList.contains('peek-wrap')) demoPeek();
+  });
+}, { rootMargin: '0px 0px -12% 0px' });
+document.querySelectorAll('.t-reveal').forEach((el) => reveal.observe(el));
 
 // beta request form
 document.querySelectorAll('.beta').forEach((form) => {

@@ -43,6 +43,7 @@
   --check-dur: 500ms;
   --check-ease-bob: cubic-bezier(0.34, 1.35, 0.64, 1);
   --deal-step: 260px;
+  --line-draw: 900ms;
 }
 * { box-sizing: border-box; }
 html { background: var(--bg); scroll-behavior: smooth; }
@@ -162,9 +163,9 @@ img { display: block; max-width: 100%; height: auto; }
 .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 12px; }
 .note { margin-top: 16px; color: var(--muted); font-size: 14px; }
 
-/* hero text reveal */
+/* hero text reveal, and the same rise for content as it scrolls in */
 .t-stagger-line { display: block; }
-.js .t-stagger-line {
+.js .t-stagger-line, .js .t-reveal {
   opacity: 0;
   transform: translateY(var(--stagger-distance));
   filter: blur(var(--stagger-blur));
@@ -173,11 +174,12 @@ img { display: block; max-width: 100%; height: auto; }
     transform var(--stagger-dur) var(--stagger-ease),
     filter    var(--stagger-dur) var(--stagger-ease);
 }
-.t-stagger-line--2 { transition-delay: var(--stagger-stagger); }
-.t-stagger-line--3 { transition-delay: calc(var(--stagger-stagger) * 2); }
-.t-stagger-line--4 { transition-delay: calc(var(--stagger-stagger) * 3); }
-.t-stagger-line--5 { transition-delay: calc(var(--stagger-stagger) * 4); }
-.js .t-stagger.is-shown .t-stagger-line { opacity: 1; transform: translateY(0); filter: blur(0); }
+.js .t-stagger-line--2 { transition-delay: var(--stagger-stagger); }
+.js .t-stagger-line--3 { transition-delay: calc(var(--stagger-stagger) * 2); }
+.js .t-stagger-line--4 { transition-delay: calc(var(--stagger-stagger) * 3); }
+.js .t-stagger-line--5 { transition-delay: calc(var(--stagger-stagger) * 4); }
+.js .t-stagger.is-shown .t-stagger-line, .js .t-reveal.is-shown { opacity: 1; transform: translateY(0); filter: blur(0); }
+.js .t-reveal { transition-delay: calc(var(--i, 0) * var(--stagger-stagger)); }
 .actions.t-stagger-line { display: flex; }
 
 /* showcase */
@@ -262,7 +264,11 @@ img { display: block; max-width: 100%; height: auto; }
   gap: 32px; margin-top: 40px;
   counter-reset: step;
 }
-.step { border-top: 1px solid var(--line); padding-top: 20px; counter-increment: step; }
+.step { position: relative; padding-top: 20px; counter-increment: step; }
+.step::after {
+  content: ""; position: absolute; top: 0; left: 0; right: 0;
+  height: 1px; background: var(--line); transform-origin: left;
+}
 .step::before { content: counter(step); color: var(--muted); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .step h3 { margin: 8px 0; color: var(--navy); font-size: 21px; line-height: 26px; letter-spacing: -0.01em; }
 .step p { color: var(--muted); }
@@ -335,6 +341,13 @@ img { display: block; max-width: 100%; height: auto; }
   display: flex; flex-direction: column; align-items: center; gap: 28px;
 }
 
+/* step rule draws across as the step scrolls in */
+.js .step::after {
+  transform: scaleX(0);
+  transition: transform var(--line-draw) var(--ease-smooth-out) calc(var(--i, 0) * var(--stagger-stagger));
+}
+.js .step.is-shown::after { transform: none; }
+
 /* footer */
 .foot {
   max-width: 1080px; margin: 0 auto;
@@ -375,7 +388,8 @@ img { display: block; max-width: 100%; height: auto; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .deal { animation: none; }
-  .js .t-stagger-line { transform: none; filter: none; transition: opacity 300ms ease; }
+  .js .t-stagger-line, .js .t-reveal { transform: none; filter: none; transition: opacity 300ms ease; }
+  .js .step::after { transform: none; transition: none; }
   .t-tilt-card { transform: none !important; transition: none !important; }
   .t-learn-chevron, .t-learn-arm { transition: none !important; }
   .peek-shown { filter: none; transition: opacity 150ms ease; }
