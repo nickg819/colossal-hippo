@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SeatSpy: Know Every Player at the Table</title>
+  <meta name="description" content="SeatSpy is an iPhone app that keeps a read on every poker player you face, and tells you how to play them.">
+  <meta property="og:title" content="SeatSpy: Know Every Player at the Table">
+  <meta property="og:description" content="An iPhone app that keeps a read on every poker player you face, and tells you how to play them.">
+  <meta property="og:image" content="https://colossalhippo.com/seatspy/og.png">
+  <meta property="og:url" content="https://colossalhippo.com/seatspy/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="home.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<nav class="bar">
+  <a class="brand" href="./"><img src="logo.svg" alt="SeatSpy" width="140" height="39"></a>
+  <a class="pill pill-dark pill-small" href="#request">Request access</a>
+</nav>
+
+<header class="hero t-stagger">
+  <h1>
+    <span class="t-stagger-line t-stagger-line--1">Know Every Player</span>
+    <span class="t-stagger-line t-stagger-line--2">at the Table</span>
+  </h1>
+  <p class="lede t-stagger-line t-stagger-line--3">SeatSpy keeps a read on the people you play poker with. Seat the table, tag each player’s type, and see how to play them before the next hand.</p>
+  <div class="request t-stagger-line t-stagger-line--4" id="request">
+  <form class="beta" action="https://formspree.io/f/mzeebnqj" method="POST">
+    <div class="beta-fields">
+      <label class="sr" for="beta-email-1">Email on your Apple ID</label>
+      <input id="beta-email-1" class="beta-input" type="email" name="email" placeholder="Email on your Apple ID" autocomplete="email" required>
+      <input type="hidden" name="_subject" value="SeatSpy beta request">
+      <input type="text" name="_gotcha" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="pill pill-dark beta-send" type="submit">Request beta access</button>
+    </div>
+    <p class="beta-done" hidden>
+      <span class="t-success-check" data-state="out" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M14 24l7 7 13-14" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Thanks. I will send a TestFlight invite to that email.</span>
+    </p>
+    <p class="beta-error" role="alert" hidden>That did not go through. Try again, or email <a href="mailto:nickgassmann@gmail.com">nickgassmann@gmail.com</a>.</p>
+  </form>
+  </div>
+  <div class="actions t-stagger-line t-stagger-line--4">
+    <a class="pill-link t-learn" href="#how">See how it works
+      <span class="t-learn-chevron" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path class="t-learn-arm t-learn-arm-top" d="M6 4L10 8"/>
+        <path class="t-learn-arm t-learn-arm-bot" d="M10 8L6 12"/>
+      </svg></span>
+    </a>
+  </div>
+  <p class="note t-stagger-line t-stagger-line--5">Free beta for iPhone. Use the email on your Apple ID and I will send you a TestFlight invite.</p>
+</header>
+
+<section class="showcase" aria-label="SeatSpy screens">
+  <div class="phones">
+    <figure class="deal t-tilt" style="--x:-2"><div class="phone t-tilt-card"><img src="screens/saved.webp" alt="Saved Players, a list of players with their type icons" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
+    <figure class="deal t-tilt" style="--x:-1"><div class="phone t-tilt-card"><img src="screens/home.webp" alt="Home, with the last session and the main actions" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
+    <figure class="deal t-tilt deal-main" style="--x:0"><div class="phone t-tilt-card"><img src="screens/howto.webp" alt="How to play them for one player, split into Go after them and Hold back" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
+    <figure class="deal t-tilt" style="--x:1"><div class="phone t-tilt-card"><img src="screens/glossary.webp" alt="The Glossary, with every player type and term" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
+    <figure class="deal t-tilt" style="--x:2"><div class="phone t-tilt-card"><img src="screens/quiz.webp" alt="The glossary quiz, one card at a time" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <h2>How It Works</h2>
+  <ol class="steps">
+    <li class="step">
+      <h3>Seat the Table</h3>
+      <p>Tap a seat to add someone from your book or a stranger. You always sit at the bottom middle, so the table reads the same way every session.</p>
+    </li>
+    <li class="step">
+      <h3>Tag Their Type</h3>
+      <p>Twelve player types, from Calling Station to Maniac. Not sure yet? <b>Quiz me</b> asks what you have seen and ranks the likely types.</p>
+    </li>
+    <li class="step">
+      <h3>Play Them Right</h3>
+      <p><b>How to play them</b> says when to bluff, when to bet for value and when to back off, for that player in particular.</p>
+    </li>
+    <li class="step">
+      <h3>Keep the Book</h3>
+      <p>Every read stays with the player. The next time they sit down, you start where the last session left off.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="advice">
+  <div class="advice-text">
+    <h2>Advice for the Player in Front of You</h2>
+    <p>Dana R is a Rec who plays like a Calling Station. Green is what to do against them, and pink is what to hold back on.</p>
+  </div>
+  <article class="verdicts" aria-label="How to play Dana R">
+    <header class="verdicts-head">
+      <h3>Dana R, How to Play Them</h3>
+      <p>Rec, played as a Calling Station.</p>
+    </header>
+    <p class="group group-go">Go after them</p>
+    <div class="field go">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="2.5"/></svg>
+      <div><p class="label">Bet for value</p><p><strong>Value bet them to death, with a solid bet-fold plan behind it.</strong></p></div>
+    </div>
+    <div class="field go">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="2.5"/></svg>
+      <div><p class="label">Before the flop</p><p><strong>Get into as many pots with them as you can.</strong> They are the player you want to be in with.</p></div>
+    </div>
+    <div class="field go">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="2.5"/></svg>
+      <div><p class="label">How much to bet</p><p><strong>Normal to large.</strong> They are not counting.</p></div>
+    </div>
+    <p class="group group-stop">Hold back</p>
+    <div class="field stop">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M3.4 3.4l9.2 9.2"/></svg>
+      <div><p class="label">Bluff them?</p><p><strong>Generally, it is -EV to try to bluff a rec.</strong> Value bet instead.</p></div>
+    </div>
+  </article>
+</section>
+
+<section class="room">
+  <div class="room-text">
+    <h2>Built for the Card Room</h2>
+    <p>Use it before a game and between hands. The whole book lives on your phone, so it works in a back room with no signal.</p>
+    <p>Incognito mode shows each tagged seat as a plain dot. Press and hold the table to see the types, and let go to hide them again.</p>
+  </div>
+  <figure class="peek-wrap">
+    <button class="peek" type="button" aria-label="Press and hold to show the player types">
+      <img class="peek-hidden" src="screens/incognito-top.webp" alt="" width="900" height="824" draggable="false">
+      <img class="peek-shown" src="screens/table-top.webp" alt="" width="900" height="824" draggable="false">
+    </button>
+    <figcaption>Press and hold the table.</figcaption>
+  </figure>
+</section>
+
+<section class="closing">
+  <h2>Try It at Your Next Game</h2>
+  <form class="beta" action="https://formspree.io/f/mzeebnqj" method="POST">
+    <div class="beta-fields">
+      <label class="sr" for="beta-email-2">Email on your Apple ID</label>
+      <input id="beta-email-2" class="beta-input" type="email" name="email" placeholder="Email on your Apple ID" autocomplete="email" required>
+      <input type="hidden" name="_subject" value="SeatSpy beta request">
+      <input type="text" name="_gotcha" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="pill pill-dark beta-send" type="submit">Request beta access</button>
+    </div>
+    <p class="beta-done" hidden>
+      <span class="t-success-check" data-state="out" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M14 24l7 7 13-14" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Thanks. I will send a TestFlight invite to that email.</span>
+    </p>
+    <p class="beta-error" role="alert" hidden>That did not go through. Try again, or email <a href="mailto:nickgassmann@gmail.com">nickgassmann@gmail.com</a>.</p>
+  </form>
+</section>
+
+<footer class="foot">
+  <span>© 2026 Nick Gassmann</span>
+  <a href="privacy/">Privacy Policy</a>
+  <a href="terms/">Terms of Use</a>
+</footer>
+
+<script src="home.js"></script>
+</body>
+</html>
