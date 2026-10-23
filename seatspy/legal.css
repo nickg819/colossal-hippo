@@ -1,0 +1,42 @@
+/* SeatSpy legal pages */
+:root {
+  color-scheme: light;
+  --bg: #fefbf8;
+  --line: #dfe6f1;
+  --heading: #1d3c6d;
+  --text: #383b3d;
+  --muted: #3a5888;
+  --link: #2e5594;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/26px var(--font);
+  letter-spacing: -0.2px;
+  margin: 0;
+  padding: 24px 16px 56px;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 760px; margin: 0 auto; }
+h1, h2, p, ul { margin: 0; }
+a { color: var(--link); }
+
+/* header */
+header { display: flex; flex-direction: column; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.logo { display: block; width: 180px; height: auto; }
+h1 { font-size: 34px; font-weight: 600; line-height: 41px; letter-spacing: -0.4px; color: var(--heading); }
+.effective { color: var(--muted); font-size: 15px; line-height: 20px; }
+
+/* body */
+section { margin-top: 32px; }
+h2 { font-size: 22px; font-weight: 700; line-height: 28px; letter-spacing: -0.3px; color: var(--heading); margin-bottom: 8px; }
+p + p, p + ul, ul + p { margin-top: 12px; }
+ul { padding-left: 20px; }
+li + li { margin-top: 8px; }
+strong { color: var(--heading); font-weight: 600; }
+
+/* footer */
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; line-height: 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
