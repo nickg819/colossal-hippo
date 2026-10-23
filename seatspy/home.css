@@ -185,6 +185,7 @@ img { display: block; max-width: 100%; height: auto; }
 .phones {
   display: flex; justify-content: center; align-items: center; gap: 24px;
   padding: 0 24px;
+  isolation: isolate;
 }
 .deal { flex: none; width: 236px; position: relative; z-index: calc(10 - var(--abs, 0)); }
 .deal:nth-child(1), .deal:nth-child(5) { --abs: 2; }
