@@ -133,7 +133,8 @@ img { display: block; max-width: 100%; height: auto; }
   display: flex; align-items: center; justify-content: center; gap: 10px;
   min-height: 62px; color: var(--navy); font-size: 18px; font-weight: 600;
 }
-.beta-fields[hidden], .beta-done[hidden], .beta-error[hidden] { display: none; }
+.beta-fields[hidden], .beta-done[hidden], .beta-error[hidden], .beta-phone[hidden], .beta-install[hidden] { display: none; }
+.beta-install { display: flex; justify-content: center; margin-top: 12px; }
 .beta-error { margin-top: 12px; color: var(--text); font-size: 15px; }
 .t-success-check { display: inline-block; width: 28px; height: 28px; color: var(--go); transform-origin: center; opacity: 0; }
 .t-success-check svg { display: block; overflow: visible; }

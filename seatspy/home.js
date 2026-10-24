@@ -79,7 +79,7 @@ document.querySelectorAll('.t-reveal').forEach((el) => reveal.observe(el));
 // beta request form
 const PHONES = {
   iPhone: { email: 'Email on your Apple ID', thanks: 'Thanks. I will send a TestFlight invite to that email.' },
-  Android: { email: 'Email', thanks: 'Thanks. I will send the Android install link to that email.' },
+  Android: { email: 'Email', thanks: 'Thanks. You can install SeatSpy now.' },
 };
 document.querySelectorAll('.beta').forEach((form) => {
   const email = form.querySelector('.beta-input');
@@ -102,6 +102,8 @@ document.querySelectorAll('.beta').forEach((form) => {
       const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
       if (!res.ok) throw new Error(res.status);
       fields.hidden = true;
+      form.querySelector('.beta-phone').hidden = true;
+      form.querySelector('.beta-install').hidden = new FormData(form).get('phone') !== 'Android';
       done.hidden = false;
       done.querySelector('.t-success-check').setAttribute('data-state', 'in');
     } catch {
