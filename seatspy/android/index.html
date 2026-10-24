@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>SeatSpy for Android</title>
+  <link rel="icon" href="../favicon.png">
+  <link rel="stylesheet" href="../legal.css">
+</head>
+<body>
+<main>
+  <header>
+    <img class="logo" src="../logo.svg" alt="SeatSpy" width="180" height="50">
+    <h1>SeatSpy for Android</h1>
+  </header>
+  <section>
+    <p id="status">Opening the install page…</p>
+  </section>
+</main>
+<script>
+// forwards to the newest Android build named in latest.json
+fetch('../latest.json?t=' + Date.now(), { cache: 'no-store' })
+  .then((res) => res.json())
+  .then((latest) => {
+    const link = latest.android && latest.android.link;
+    if (!link || !link.startsWith('https://expo.dev/')) throw new Error('no link');
+    location.replace(link);
+  })
+  .catch(() => {
+    document.getElementById('status').innerHTML =
+      'The install page did not load. Email <a href="mailto:nickgassmann@gmail.com">nickgassmann@gmail.com</a> and I will send the link.';
+  });
+</script>
+</body>
+</html>

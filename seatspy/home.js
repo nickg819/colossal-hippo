@@ -77,7 +77,18 @@ const reveal = new IntersectionObserver((entries) => {
 document.querySelectorAll('.t-reveal').forEach((el) => reveal.observe(el));
 
 // beta request form
+const PHONES = {
+  iPhone: { email: 'Email on your Apple ID', thanks: 'Thanks. I will send a TestFlight invite to that email.' },
+  Android: { email: 'Email', thanks: 'Thanks. I will send the Android install link to that email.' },
+};
 document.querySelectorAll('.beta').forEach((form) => {
+  const email = form.querySelector('.beta-input');
+  form.querySelectorAll('input[name="phone"]').forEach((radio) => radio.addEventListener('change', () => {
+    const phone = PHONES[radio.value];
+    email.placeholder = phone.email;
+    form.querySelector('.beta-label').textContent = phone.email;
+    form.querySelector('.beta-thanks').textContent = phone.thanks;
+  }));
   const fields = form.querySelector('.beta-fields');
   const send = form.querySelector('.beta-send');
   const done = form.querySelector('.beta-done');

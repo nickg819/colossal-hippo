@@ -1,5 +1,10 @@
 {
   "version": "1.2.1",
   "build": 15,
-  "testflight": "https://testflight.apple.com/join/XpJfBCSk"
+  "testflight": "https://testflight.apple.com/join/XpJfBCSk",
+  "android": {
+    "version": "1.2.1",
+    "build": 3,
+    "link": "https://expo.dev/accounts/colossal-hippo/projects/seatspy/builds/b4a12781-bec8-4e60-b3c5-b5627e7537f9"
+  }
 }

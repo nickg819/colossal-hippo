@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.png">
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="stylesheet" href="home.css?v=4">
+  <link rel="stylesheet" href="home.css?v=5">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -30,8 +30,13 @@
   <p class="lede t-stagger-line t-stagger-line--3">SeatSpy keeps a read on the people you play poker with. Seat the table, tag each player’s type, and see how to play them before the next hand.</p>
   <div class="request t-stagger-line t-stagger-line--4" id="request">
   <form class="beta" action="https://formspree.io/f/mzeebnqj" method="POST">
+    <fieldset class="beta-phone">
+      <legend class="sr">Your phone</legend>
+      <label><input class="sr" type="radio" name="phone" value="iPhone" checked><span>iPhone</span></label>
+      <label><input class="sr" type="radio" name="phone" value="Android"><span>Android</span></label>
+    </fieldset>
     <div class="beta-fields">
-      <label class="sr" for="beta-email-1">Email on your Apple ID</label>
+      <label class="sr beta-label" for="beta-email-1">Email on your Apple ID</label>
       <input id="beta-email-1" class="beta-input" type="email" name="email" placeholder="Email on your Apple ID" autocomplete="email" required>
       <input type="hidden" name="_subject" value="SeatSpy beta request">
       <input type="text" name="_gotcha" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -39,7 +44,7 @@
     </div>
     <p class="beta-done" hidden>
       <span class="t-success-check" data-state="out" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M14 24l7 7 13-14" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <span>Thanks. I will send a TestFlight invite to that email.</span>
+      <span class="beta-thanks">Thanks. I will send a TestFlight invite to that email.</span>
     </p>
     <p class="beta-error" role="alert" hidden>That did not go through. Try again, or email <a href="mailto:nickgassmann@gmail.com">nickgassmann@gmail.com</a>.</p>
   </form>
@@ -52,7 +57,7 @@
       </svg></span>
     </a>
   </div>
-  <p class="note t-stagger-line t-stagger-line--5">Free beta for iPhone. Use the email on your Apple ID and I will send you a TestFlight invite.</p>
+  <p class="note t-stagger-line t-stagger-line--5">Free beta for iPhone and Android. iPhone testers get a TestFlight invite, so use the email on your Apple ID.</p>
 </header>
 
 <section class="showcase" aria-label="SeatSpy screens">
@@ -136,8 +141,13 @@
 <section class="closing">
   <h2 class="t-reveal">Try It at Your Next Game</h2>
   <form class="beta t-reveal" action="https://formspree.io/f/mzeebnqj" method="POST">
+    <fieldset class="beta-phone">
+      <legend class="sr">Your phone</legend>
+      <label><input class="sr" type="radio" name="phone" value="iPhone" checked><span>iPhone</span></label>
+      <label><input class="sr" type="radio" name="phone" value="Android"><span>Android</span></label>
+    </fieldset>
     <div class="beta-fields">
-      <label class="sr" for="beta-email-2">Email on your Apple ID</label>
+      <label class="sr beta-label" for="beta-email-2">Email on your Apple ID</label>
       <input id="beta-email-2" class="beta-input" type="email" name="email" placeholder="Email on your Apple ID" autocomplete="email" required>
       <input type="hidden" name="_subject" value="SeatSpy beta request">
       <input type="text" name="_gotcha" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -145,7 +155,7 @@
     </div>
     <p class="beta-done" hidden>
       <span class="t-success-check" data-state="out" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M14 24l7 7 13-14" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <span>Thanks. I will send a TestFlight invite to that email.</span>
+      <span class="beta-thanks">Thanks. I will send a TestFlight invite to that email.</span>
     </p>
     <p class="beta-error" role="alert" hidden>That did not go through. Try again, or email <a href="mailto:nickgassmann@gmail.com">nickgassmann@gmail.com</a>.</p>
   </form>
@@ -157,6 +167,6 @@
   <a href="terms/">Terms of Use</a>
 </footer>
 
-<script src="home.js?v=2"></script>
+<script src="home.js?v=3"></script>
 </body>
 </html>
