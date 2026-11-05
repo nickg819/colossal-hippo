@@ -87,7 +87,6 @@ img { display: block; max-width: 100%; height: auto; }
 .pill-dark:hover { background: #244677; }
 .pill-line { border: 1.5px solid var(--blue); color: var(--blue); }
 .pill-line:hover { background: var(--pill); }
-.pill-small { min-height: 38px; padding: 0 16px; font-size: 14px; }
 
 /* see how it works chevron */
 .t-learn-chevron {
