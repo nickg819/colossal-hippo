@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.png">
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="stylesheet" href="home.css?v=7">
+  <link rel="stylesheet" href="home.css?v=8">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -64,8 +64,8 @@
 <section class="showcase" aria-label="SeatSpy screens">
   <div class="phones">
     <figure class="deal t-tilt" style="--x:-2"><div class="phone t-tilt-card"><img src="screens/saved.webp" alt="Saved Players, a list of players with their type icons" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
-    <figure class="deal t-tilt" style="--x:-1"><div class="phone t-tilt-card"><img src="screens/home.webp" alt="Home, with the last session and the main actions" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
-    <figure class="deal t-tilt deal-main" style="--x:0"><div class="phone t-tilt-card"><img src="screens/howto.webp?v=2" alt="How to exploit them for one player, split into Go after them and Hold back" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
+    <figure class="deal t-tilt" style="--x:-1"><div class="phone t-tilt-card"><img src="screens/table-read.webp" alt="The table in Simple mode, with a plain line on how to play each seated player" width="720" height="1565"><div class="t-tilt-glare"></div></div></figure>
+    <figure class="deal t-tilt deal-main" style="--x:0"><div class="phone t-tilt-card"><img src="screens/howto.webp?v=3" alt="How to exploit them for one player in Simple mode, split into Go after them and Hold back" width="720" height="1565"><div class="t-tilt-glare"></div></div></figure>
     <figure class="deal t-tilt" style="--x:1"><div class="phone t-tilt-card"><img src="screens/glossary.webp" alt="The Glossary, with every player type and term" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
     <figure class="deal t-tilt" style="--x:2"><div class="phone t-tilt-card"><img src="screens/quiz.webp" alt="The glossary quiz, one card at a time" width="720" height="1561"><div class="t-tilt-glare"></div></div></figure>
   </div>
@@ -80,7 +80,7 @@
     </li>
     <li class="step t-reveal">
       <h3>Tag Their Type</h3>
-      <p>Twelve player types, from Calling Station to Maniac. Not sure yet? <b>Quiz me</b> asks what you have seen and ranks the likely types.</p>
+      <p>Twelve player types, from Calling Station to Maniac. Not sure yet? <b>Quiz me</b> asks what you have seen and ranks the likely types. <b>Next player</b> moves you around the table to the next seat with no type.</p>
     </li>
     <li class="step t-reveal">
       <h3>Exploit Their Mistakes</h3>
@@ -97,12 +97,36 @@
   <div class="advice-text">
     <h2 class="t-reveal">An Exploit for the Player in Front of You</h2>
     <p class="t-reveal">Dana R is a Rec who plays like a Calling Station. Green is what to do against them, and pink is what to hold back on.</p>
+    <p class="t-reveal">SeatSpy starts in Simple mode, with three plain lines for each type: whether to bluff them, what their raise means and how to bet a good hand. Full detail adds sizing, preflop play and the rest of the card. To change modes during a session, use the <b>Simple</b> switch beside the table name.</p>
   </div>
   <article class="verdicts" aria-label="How to exploit Dana R">
+    <fieldset class="detail-switch t-reveal">
+      <legend class="sr">Card detail</legend>
+      <label><input class="sr" type="radio" name="detail" value="simple" checked><span>Simple</span></label>
+      <label><input class="sr" type="radio" name="detail" value="full"><span>Full detail</span></label>
+    </fieldset>
     <header class="verdicts-head t-reveal">
       <h3>Dana R, How to Exploit Them</h3>
       <p>Rec, played as a Calling Station.</p>
+      <p class="detail-simple">Here to have fun. Plays too many hands.</p>
     </header>
+    <div class="detail-simple">
+    <p class="group group-go t-reveal">Go after them</p>
+    <div class="field go t-reveal">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="2.5"/></svg>
+      <div><p class="label">Bet for value</p><p><strong>Bet your good hands big. Fold if they raise.</strong></p></div>
+    </div>
+    <p class="group group-stop t-reveal">Hold back</p>
+    <div class="field stop t-reveal">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M3.4 3.4l9.2 9.2"/></svg>
+      <div><p class="label">Bluff them?</p><p><strong>Do not bluff them. They call too much.</strong></p></div>
+    </div>
+    <div class="field stop t-reveal">
+      <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M3.4 3.4l9.2 9.2"/></svg>
+      <div><p class="label">When they raise</p><p><strong>Fold when they raise. They almost never do it without a big hand.</strong></p></div>
+    </div>
+    </div>
+    <div class="detail-full">
     <p class="group group-go t-reveal">Go after them</p>
     <div class="field go t-reveal">
       <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="2.5"/></svg>
@@ -120,6 +144,7 @@
     <div class="field stop t-reveal">
       <svg class="mark" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M3.4 3.4l9.2 9.2"/></svg>
       <div><p class="label">Bluff them?</p><p><strong>Generally, it is -EV to try to bluff a rec.</strong> Value bet instead.</p></div>
+    </div>
     </div>
   </article>
 </section>
