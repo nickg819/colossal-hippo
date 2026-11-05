@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.png">
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="stylesheet" href="home.css?v=8">
+  <link rel="stylesheet" href="home.css?v=9">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -149,18 +149,29 @@
   </article>
 </section>
 
+<section class="train">
+  <div class="train-text">
+    <h2 class="t-reveal">Learn the Words at Home</h2>
+    <p class="t-reveal">The advice is only useful if you know what a float or a 3-bet is. The Glossary covers more than 90 poker terms, and the terms in the advice have a dotted line under them. Tap one to see what it means.</p>
+    <p class="t-reveal"><b>Quiz yourself</b> deals ten cards a round. Each answer turns the card over, green when you are right and red when you miss. The questions change as you go: pick the meaning, name the term, true or false, fill the blank from a real line of advice, or type the term yourself.</p>
+    <p class="t-reveal"><b>Quiz progress</b> keeps count of the terms you know, shows which groups you are weakest in and runs a round on just the terms you keep missing.</p>
+  </div>
+  <figure class="train-phone t-reveal"><div class="phone"><img src="screens/quiz-right.webp" alt="A quiz card turned over to show a right answer, River, the fifth and last shared card" width="720" height="1565" loading="lazy"></div></figure>
+</section>
+
 <section class="room">
   <div class="room-text">
     <h2 class="t-reveal">Built for the Card Room</h2>
     <p class="t-reveal">Use it before a game and between hands. The whole book lives on your phone, so it works in a back room with no signal.</p>
     <p class="t-reveal">Incognito mode shows each tagged seat as a plain dot. Press and hold the table to see the types, and let go to hide them again.</p>
+    <p class="t-reveal">When someone changes seats, hold their seat and drag it to the new one. Drop them on another player and the two swap.</p>
   </div>
   <figure class="peek-wrap t-reveal">
-    <button class="peek" type="button" aria-label="Press and hold to show the player types">
-      <img class="peek-hidden" src="screens/incognito-top.webp" alt="" width="900" height="824" draggable="false">
-      <img class="peek-shown" src="screens/table-top.webp" alt="" width="900" height="824" draggable="false">
-    </button>
-    <figcaption>Press and hold the table.</figcaption>
+    <div class="peek" role="group" aria-label="A table in incognito mode">
+      <img class="table-fallback" src="screens/table-top.webp" alt="A table of nine players, each seat showing the player's types" width="900" height="824" draggable="false">
+    </div>
+    <figcaption>Press and hold the table. Drag a player to a new seat, or press Enter on a player and then on a seat.</figcaption>
+    <p class="sr" aria-live="polite"></p>
   </figure>
 </section>
 
@@ -194,6 +205,6 @@
   <a href="terms/">Terms of Use</a>
 </footer>
 
-<script src="home.js?v=4"></script>
+<script src="home.js?v=6"></script>
 </body>
 </html>
