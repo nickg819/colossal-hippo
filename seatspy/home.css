@@ -271,7 +271,7 @@ img { display: block; max-width: 100%; height: auto; }
 .how { max-width: 1080px; margin: 0 auto; padding: 0 24px 104px; }
 .steps {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 32px; margin-top: 40px;
+  gap: 24px; margin-top: 40px;
   counter-reset: step;
 }
 .step { position: relative; padding-top: 20px; counter-increment: step; }
@@ -280,7 +280,7 @@ img { display: block; max-width: 100%; height: auto; }
   height: 1px; background: var(--line); transform-origin: left;
 }
 .step::before { content: counter(step); color: var(--muted); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.step h3 { margin: 8px 0; color: var(--navy); font-size: 21px; line-height: 26px; letter-spacing: -0.01em; }
+.step h3 { margin: 8px 0; color: var(--navy); font-size: 21px; line-height: 26px; letter-spacing: -0.02em; }
 .step p { color: var(--muted); }
 
 /* advice */
